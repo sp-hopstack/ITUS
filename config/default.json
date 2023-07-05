@@ -1,0 +1,5 @@
+{
+  "logLevel": "debug",
+  "port": 11000,
+  "appName": "Platform Backend"
+}
