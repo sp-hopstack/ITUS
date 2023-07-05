@@ -1,0 +1,8 @@
+{
+  "logLevel": "info",
+  "port": 11000,
+  "appName": "Platform Backend",
+  "dbUrl": "mongodb://localhost:27017/",
+  "dbName": "platform-dev",
+  "tenantsApi": "http://localhost:10000"
+}

@@ -1,0 +1,6 @@
+{
+  "logLevel": "info",
+  "port": 80,
+  "dbName": "platform-uat",
+  "tenantsApi": "https://pdr8rrpbtp.us-east-1.awsapprunner.com"
+}

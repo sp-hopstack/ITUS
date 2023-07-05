@@ -1,0 +1,6 @@
+{
+  "logLevel": "info",
+  "port": 11000,
+  "dbName": "platform-dev",
+  "tenantsApi": "http://tenants-service:10000"
+}

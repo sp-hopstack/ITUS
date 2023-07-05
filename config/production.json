@@ -1,0 +1,6 @@
+{
+  "logLevel": "error",
+  "port": 80,
+  "dbName": "platform-production",
+  "tenantsApi": "https://5dmj7aptme.us-east-1.awsapprunner.com"
+}
