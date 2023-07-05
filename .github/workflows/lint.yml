@@ -1,0 +1,22 @@
+name: Lint/Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      # Default npm version default to 6 which has issues with installing dependencies
+      - run: npm install -g npm@^9.0.0
+      - run: npm ci
+      - run: npx pretty-quick --check
+      - run: npm run lint
+      - name: Run Tests
+        run: npm test
