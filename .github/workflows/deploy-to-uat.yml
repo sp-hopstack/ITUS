@@ -1,0 +1,25 @@
+name: Build and Deploy to UAT
+
+on:
+  push:
+    branches:
+      - release/uat
+
+jobs:
+  build-image:
+    uses: hopstack-inc/hopstack_common-configs/.github/workflows/build-image.yml@main
+    with:
+      ecr-repo-name: platform/backend-svc
+      image-tag: uat
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+
+  deploy-to-uat:
+    uses: hopstack-inc/hopstack_common-configs/.github/workflows/trigger-deploy-uat.yml@main
+    needs: [ build-image ]
+    if: ${{ always() && !cancelled() && needs.build-image.result == 'success' }}
+    secrets:
+      CIRCLECI_TOKEN: ${{ secrets.CIRCLECI_TOKEN }}
+
